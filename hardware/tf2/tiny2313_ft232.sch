@@ -25,17 +25,6 @@ F 3 "" H 6750 3850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L tiny2313_ft232-rescue:GND-RESCUE-tiny2313_ft232-tiny2313_ft232-rescue-tiny2313_ft232-rescue #PWR02
-U 1 1 57FBCCB8
-P 11050 5150
-F 0 "#PWR02" H 11050 4900 50  0001 C CNN
-F 1 "GND" H 11055 4977 50  0001 C CNN
-F 2 "" H 11050 5150 50  0000 C CNN
-F 3 "" H 11050 5150 50  0000 C CNN
-	1    11050 5150
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R ledR_portD2
 U 1 1 57FBD3AC
 P 10900 3700
@@ -1307,4 +1296,17 @@ Wire Wire Line
 	7000 2600 7300 2600
 Connection ~ 7000 2600
 Connection ~ 7300 2600
+$Comp
+L power:GND #PWR02
+U 1 1 57FBCCB8
+P 11050 5150
+F 0 "#PWR02" H 11050 4900 50  0001 C CNN
+F 1 "GND" H 11055 4977 50  0001 C CNN
+F 2 "" H 11050 5150 50  0000 C CNN
+F 3 "" H 11050 5150 50  0000 C CNN
+	1    11050 5150
+	1    0    0    -1  
+$EndComp
+Connection ~ 11050 5150
+Connection ~ 4550 4450
 $EndSCHEMATC
