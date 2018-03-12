@@ -1,0 +1,1324 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "AVRtiny2313 FT232RL"
+Date "2017-01-11"
+Rev "1"
+Comp "TF1"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L power:GND #PWR01
+U 1 1 57FBBB0E
+P 5200 3850
+F 0 "#PWR01" H 5200 3600 50  0001 C CNN
+F 1 "GND" H 5205 3677 50  0001 C CNN
+F 2 "" H 5200 3850 50  0000 C CNN
+F 3 "" H 5200 3850 50  0000 C CNN
+	1    5200 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R ftR_ledTX1
+U 1 1 57FBBB28
+P 4000 4200
+F 0 "ftR_ledTX1" V 4100 4200 50  0000 C CNN
+F 1 "180" V 4000 4200 50  0000 C CIN
+F 2 "Discret:R1" V 3930 4200 50  0001 C CNN
+F 3 "" H 4000 4200 50  0000 C CNN
+F 4 "Y" H 4000 4200 60  0001 C CNN "Spice_Netlist_Enabled"
+F 5 "R" H 4000 4200 60  0001 C CNN "Spice_Primitive"
+F 6 "62" H 4000 4200 60  0001 C CNN "Spice_Model"
+	1    4000 4200
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R ftR_ledRX1
+U 1 1 57FBBB6F
+P 4200 4200
+F 0 "ftR_ledRX1" V 4300 4200 50  0000 C CNN
+F 1 "6.2k" V 4200 4200 50  0000 C CIN
+F 2 "Discret:R1" V 4130 4200 50  0001 C CNN
+F 3 "" H 4200 4200 50  0000 C CNN
+F 4 "R" H 4200 4200 60  0001 C CNN "Spice_Primitive"
+F 5 "20k" H 4200 4200 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 4200 4200 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    4200 4200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 57FBCCB8
+P 11150 4750
+F 0 "#PWR02" H 11150 4500 50  0001 C CNN
+F 1 "GND" H 11155 4577 50  0001 C CNN
+F 2 "" H 11150 4750 50  0000 C CNN
+F 3 "" H 11150 4750 50  0000 C CNN
+	1    11150 4750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R ledR_portD2
+U 1 1 57FBD3AC
+P 9900 3700
+F 0 "ledR_portD2" V 10000 3650 50  0001 L CNN
+F 1 "390" V 9900 3700 50  0000 C CIN
+F 2 "Discret:R1" V 9830 3700 50  0001 C CNN
+F 3 "" H 9900 3700 50  0000 C CNN
+F 4 "R" H 9900 3700 60  0001 C CNN "Spice_Primitive"
+F 5 "1k" H 9900 3700 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 9900 3700 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    9900 3700
+	0    1    1    0   
+$EndComp
+$Comp
+L Transistor_FET:BSS138 key2
+U 1 1 57FBE53C
+P 10300 2150
+F 0 "key2" H 10550 2150 50  0000 L CNN
+F 1 "BSS123" H 10500 2050 50  0000 L CIN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 10500 2075 50  0001 L CIN
+F 3 "" H 10300 2150 50  0000 L CNN
+F 4 "X" H 10300 2150 60  0001 C CNN "Spice_Primitive"
+F 5 "BSS123/ZTX" H 10300 2150 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 10300 2150 60  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "/home/panticonur/yad/battOr/spice/bss123.sub" H 10300 2150 60  0001 C CNN "Spice_Lib_File"
+	1    10300 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:2N7002 key1
+U 1 1 57FBF2CF
+P 9850 1550
+F 0 "key1" H 10041 1596 50  0000 L CNN
+F 1 "2N7002" H 10041 1505 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 10050 1475 50  0001 L CIN
+F 3 "" H 9850 1550 50  0000 L CNN
+F 4 "X" H 9850 1550 60  0001 C CNN "Spice_Primitive"
+F 5 "2N7002" H 9850 1550 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 9850 1550 60  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "/home/panticonur/yad/battOr/spice/2n7002.sub" H 9850 1550 60  0001 C CNN "Spice_Lib_File"
+	1    9850 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_FET:BSS84 key3
+U 1 1 57FBF3E1
+P 10800 2800
+F 0 "key3" H 10991 2754 50  0000 L CNN
+F 1 "BSS84" H 10991 2845 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23" H 11000 2900 50  0001 C CNN
+F 3 "" H 10800 2800 50  0000 C CNN
+F 4 "X" H 10800 2800 60  0001 C CNN "Spice_Primitive"
+F 5 "BSS84" H 10800 2800 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 10800 2800 60  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "/home/panticonur/yad/battOr/spice/bss84.sub" H 10800 2800 60  0001 C CNN "Spice_Lib_File"
+	1    10800 2800
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:C vbusC2
+U 1 1 57FC0E46
+P 750 4500
+F 0 "vbusC2" V 950 4400 50  0000 L CNN
+F 1 "100n" V 900 4300 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm" H 788 4350 50  0001 C CNN
+F 3 "" H 750 4500 50  0000 C CNN
+F 4 "C" H 750 4500 60  0001 C CNN "Spice_Primitive"
+F 5 "22u" H 750 4500 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 750 4500 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    750  4500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C quartzC1
+U 1 1 57FC1690
+P 5200 3600
+F 0 "quartzC1" H 5250 3500 50  0000 L CNN
+F 1 "22n" H 5250 3700 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm" H 5238 3450 50  0001 C CNN
+F 3 "" H 5200 3600 50  0000 C CNN
+F 4 "C" H 5200 3600 60  0001 C CNN "Spice_Primitive"
+F 5 "22u" H 5200 3600 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 5200 3600 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    5200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C quartzC2
+U 1 1 57FC1D1A
+P 5700 3600
+F 0 "quartzC2" H 5750 3500 50  0000 L CNN
+F 1 "22n" H 5750 3700 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm" H 5738 3450 50  0001 C CNN
+F 3 "" H 5700 3600 50  0000 C CNN
+F 4 "C" H 5700 3600 60  0001 C CNN "Spice_Primitive"
+F 5 "22u" H 5700 3600 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 5700 3600 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    5700 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x05 keyP1
+U 1 1 57FC2515
+P 10300 3350
+F 0 "keyP1" V 10515 3345 50  0001 C CNN
+F 1 "CONN_01X05" V 10424 3345 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 10300 3350 50  0001 C CNN
+F 3 "" H 10300 3350 50  0000 C CNN
+F 4 "N" H 10300 3350 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    10300 3350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R ledR_portD4
+U 1 1 57FC3E1C
+P 9900 3900
+F 0 "ledR_portD4" V 10000 3900 50  0001 C CNN
+F 1 "390" V 9900 3900 50  0000 C CIN
+F 2 "Discret:R1" V 9830 3900 50  0001 C CNN
+F 3 "" H 9900 3900 50  0000 C CNN
+F 4 "R" H 9900 3900 60  0001 C CNN "Spice_Primitive"
+F 5 "68k" H 9900 3900 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 9900 3900 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    9900 3900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R ledR_portD3
+U 1 1 57FC3F48
+P 9900 3800
+F 0 "ledR_portD3" V 10000 3800 50  0001 C CNN
+F 1 "390" V 9900 3800 50  0000 C CIN
+F 2 "Discret:R1" V 9830 3800 50  0001 C CNN
+F 3 "" H 9900 3800 50  0000 C CNN
+F 4 "R" H 9900 3800 60  0001 C CNN "Spice_Primitive"
+F 5 "120k" H 9900 3800 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 9900 3800 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    9900 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R avrR_reset1
+U 1 1 57FD5CE8
+P 5950 2350
+F 0 "avrR_reset1" H 5450 2250 50  0000 L CNN
+F 1 "10k" V 5950 2350 50  0000 C CIN
+F 2 "Discret:R3" V 5880 2350 50  0001 C CNN
+F 3 "" H 5950 2350 50  0000 C CNN
+	1    5950 2350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C vbusC1
+U 1 1 5876B804
+P 750 4000
+F 0 "vbusC1" V 1000 3850 50  0000 L CNN
+F 1 "15n" V 900 3950 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm" H 788 3850 50  0001 C CNN
+F 3 "" H 750 4000 50  0000 C CNN
+F 4 "C" H 750 4000 60  0001 C CNN "Spice_Primitive"
+F 5 "22u" H 750 4000 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 750 4000 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    750  4000
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C frC1_33
+U 1 1 5876B8A4
+P 2750 4200
+F 0 "frC1_33" V 2650 4050 50  0000 L CNN
+F 1 "100n" V 2900 4100 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.4mm_W2.1mm_P2.50mm" H 2788 4050 50  0001 C CNN
+F 3 "" H 2750 4200 50  0000 C CNN
+F 4 "C" H 2750 4200 60  0001 C CNN "Spice_Primitive"
+F 5 "100n" H 2750 4200 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 2750 4200 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    2750 4200
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C avrC_reset1
+U 1 1 5876B94D
+P 5700 2350
+F 0 "avrC_reset1" H 5250 2550 50  0000 L CNN
+F 1 "100n" H 5500 2450 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm" H 5738 2200 50  0001 C CNN
+F 3 "" H 5700 2350 50  0000 C CNN
+F 4 "C" H 5700 2350 60  0001 C CNN "Spice_Primitive"
+F 5 "22u" H 5700 2350 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 5700 2350 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    5700 2350
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Atmel_ATTINY:ATTINY2313-20PU AVR1
+U 1 1 5876B326
+P 7150 3400
+F 0 "AVR1" H 7150 3350 50  0000 C CNN
+F 1 "ATTINY2313-20PU" H 7150 3250 50  0000 C CNN
+F 2 "Housings_DIP:DIP-20_W7.62mm_Socket" H 7150 3900 50  0001 C CIN
+F 3 "" H 7150 3400 50  0000 C CNN
+	1    7150 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR03
+U 1 1 5878083D
+P 650 3600
+F 0 "#PWR03" H 650 3350 50  0001 C CNN
+F 1 "GND" H 655 3427 50  0001 C CNN
+F 2 "" H 650 3600 50  0000 C CNN
+F 3 "" H 650 3600 50  0000 C CNN
+	1    650  3600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 58780A14
+P 7150 4650
+F 0 "#PWR04" H 7150 4400 50  0001 C CNN
+F 1 "GND" H 7155 4477 50  0001 C CNN
+F 2 "" H 7150 4650 50  0000 C CNN
+F 3 "" H 7150 4650 50  0000 C CNN
+	1    7150 4650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Crystal quartzAVR1
+U 1 1 587812E2
+P 5450 3100
+F 0 "quartzAVR1" H 5450 2900 50  0001 C CNN
+F 1 "Crystal" H 5450 3277 50  0001 C CNN
+F 2 "Crystals:Resonator-2pin_w8.0mm_h3.5mm" H 5450 3100 50  0001 C CNN
+F 3 "" H 5450 3100 50  0000 C CNN
+	1    5450 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Ferrite_Bead vbusBead1
+U 1 1 587813B0
+P 950 4250
+F 0 "vbusBead1" H 1000 4350 50  0001 L CNN
+F 1 "Ferrite_Bead" H 1087 4205 50  0001 L CNN
+F 2 "Diodes_THT:D_DO-15_P2.54mm_Vertical_AnodeUp" V 880 4250 50  0001 C CNN
+F 3 "" H 950 4250 50  0000 C CNN
+	1    950  4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED ftLED_TX1
+U 1 1 587813FE
+P 4000 4600
+F 0 "ftLED_TX1" H 3850 4450 50  0000 L CNN
+F 1 "green" H 4000 4500 50  0000 L CNN
+F 2 "LEDs:LED_D3.0mm" H 4000 4600 50  0001 C CNN
+F 3 "" H 4000 4600 50  0000 C CNN
+	1    4000 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED ftLED_RX1
+U 1 1 587815B2
+P 4200 4600
+F 0 "ftLED_RX1" H 4050 4700 50  0000 L CNN
+F 1 "blue" H 4250 4750 50  0000 L CNN
+F 2 "LEDs:LED_D3.0mm" H 4200 4600 50  0001 C CNN
+F 3 "" H 4200 4600 50  0000 C CNN
+	1    4200 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:LED led_portD2
+U 1 1 58781630
+P 10350 3700
+F 0 "led_portD2" H 10350 3600 50  0001 C CNN
+F 1 "white" H 10400 3600 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 10350 3700 50  0001 C CNN
+F 3 "" H 10350 3700 50  0000 C CNN
+	1    10350 3700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED led_portD3
+U 1 1 587816D8
+P 10650 3800
+F 0 "led_portD3" H 10650 3700 50  0001 C CNN
+F 1 "blue" H 10650 3650 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 10650 3800 50  0001 C CNN
+F 3 "" H 10650 3800 50  0000 C CNN
+	1    10650 3800
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED led_portD4
+U 1 1 58781798
+P 10950 3900
+F 0 "led_portD4" H 10950 3800 50  0001 C CNN
+F 1 "red" H 10950 3650 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 10950 3900 50  0001 C CNN
+F 3 "" H 10950 3900 50  0000 C CNN
+	1    10950 3900
+	-1   0    0    1   
+$EndComp
+$Comp
+L Transistor_BJT:BC337 ftQ_amp3V3
+U 1 1 5878395A
+P 2200 4450
+F 0 "ftQ_amp3V3" H 2050 4700 50  0000 L CNN
+F 1 "BC337-16" H 1800 4600 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-92_Inline_Wide" H 2391 4359 50  0001 L CIN
+F 3 "" H 2200 4450 50  0001 L CNN
+	1    2200 4450
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR05
+U 1 1 5878499E
+P 3350 4300
+F 0 "#PWR05" H 3350 4050 50  0001 C CNN
+F 1 "GND" H 3355 4127 50  0001 C CNN
+F 2 "" H 3350 4300 50  0000 C CNN
+F 3 "" H 3350 4300 50  0000 C CNN
+	1    3350 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C vbusC3
+U 1 1 587B79D4
+P 750 4850
+F 0 "vbusC3" V 950 4700 50  0000 L CNN
+F 1 "47u" V 900 4750 50  0000 L CIN
+F 2 "Capacitors_THT:C_Disc_D3.8mm_W2.6mm_P2.50mm" H 788 4700 50  0001 C CNN
+F 3 "" H 750 4850 50  0000 C CNN
+F 4 "C" H 750 4850 60  0001 C CNN "Spice_Primitive"
+F 5 "22u" H 750 4850 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 750 4850 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    750  4850
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x12 ftP_common1
+U 1 1 587B80DC
+P 1450 4150
+F 0 "ftP_common1" V 1665 4145 50  0001 C CNN
+F 1 "CONN_01X02" V 1574 4145 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x12_Pitch2.54mm" H 1450 4150 50  0001 C CNN
+F 3 "" H 1450 4150 50  0000 C CNN
+F 4 "N" H 1450 4150 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    1450 4150
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R ftR_reset2
+U 1 1 587B9253
+P 2100 3450
+F 0 "ftR_reset2" V 2200 3150 50  0000 L CNN
+F 1 "10k" V 2100 3350 50  0000 L CIN
+F 2 "Discret:R3" V 2030 3450 50  0001 C CNN
+F 3 "" H 2100 3450 50  0000 C CNN
+	1    2100 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R ftR_reset1
+U 1 1 587B930D
+P 2100 3250
+F 0 "ftR_reset1" V 2200 2950 50  0000 L CNN
+F 1 "4.7k" V 2100 3150 50  0000 L CIN
+F 2 "Discret:R1" V 2030 3250 50  0001 C CNN
+F 3 "" H 2100 3250 50  0000 C CNN
+	1    2100 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR06
+U 1 1 587B957F
+P 1950 3450
+F 0 "#PWR06" H 1950 3200 50  0001 C CNN
+F 1 "GND" H 1955 3277 50  0001 C CNN
+F 2 "" H 1950 3450 50  0000 C CNN
+F 3 "" H 1950 3450 50  0000 C CNN
+	1    1950 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR07
+U 1 1 587BDCEA
+P 1650 4700
+F 0 "#PWR07" H 1650 4450 50  0001 C CNN
+F 1 "GND" H 1655 4527 50  0001 C CNN
+F 2 "" H 1650 4700 50  0000 C CNN
+F 3 "" H 1650 4700 50  0000 C CNN
+	1    1650 4700
+	1    0    0    -1  
+$EndComp
+Text Label 5400 4950 0    60   ~ 0
+PWREN
+Text Label 5900 5050 0    60   ~ 0
+resumePC
+$Comp
+L Connector_Generic:Conn_01x08 avrP_portD1
+U 1 1 587C0CEB
+P 8850 3800
+F 0 "avrP_portD1" V 9065 3795 50  0001 C CNN
+F 1 "CONN_01X08" V 8974 3795 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 8850 3800 50  0001 C CNN
+F 3 "" H 8850 3800 50  0000 C CNN
+F 4 "N" H 8850 3800 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    8850 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 avrP_portD2
+U 1 1 587C0E18
+P 9000 3800
+F 0 "avrP_portD2" V 9215 3795 50  0001 C CNN
+F 1 "CONN_01X08" V 9124 3795 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 9000 3800 50  0001 C CNN
+F 3 "" H 9000 3800 50  0000 C CNN
+F 4 "N" H 9000 3800 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    9000 3800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 avrP_portB1
+U 1 1 587C3AC6
+P 8700 2900
+F 0 "avrP_portB1" V 8915 2895 50  0001 C CNN
+F 1 "CONN_01X08" V 8824 2895 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 8700 2900 50  0001 C CNN
+F 3 "" H 8700 2900 50  0000 C CNN
+F 4 "N" H 8700 2900 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    8700 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x08 avrP_portB2
+U 1 1 587C4332
+P 8850 2900
+F 0 "avrP_portB2" V 9065 2895 50  0001 C CNN
+F 1 "CONN_01X08" V 8974 2895 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 8850 2900 50  0001 C CNN
+F 3 "" H 8850 2900 50  0000 C CNN
+F 4 "N" H 8850 2900 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    8850 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L Device:LED led_portD5
+U 1 1 587C4C3F
+P 10650 4300
+F 0 "led_portD5" H 10650 4200 50  0001 C CNN
+F 1 "yellow" H 10641 4425 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 10650 4300 50  0001 C CNN
+F 3 "" H 10650 4300 50  0000 C CNN
+	1    10650 4300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:LED led_portD6
+U 1 1 587C4C74
+P 10350 4200
+F 0 "led_portD6" H 10350 4100 50  0001 C CNN
+F 1 "green" H 10350 4400 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 10350 4200 50  0001 C CNN
+F 3 "" H 10350 4200 50  0000 C CNN
+	1    10350 4200
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R ledR_portD5
+U 1 1 587C4D64
+P 9900 4300
+F 0 "ledR_portD5" V 10000 4300 50  0001 C CNN
+F 1 "390" V 9900 4300 50  0000 C CIN
+F 2 "Discret:R1" V 9830 4300 50  0001 C CNN
+F 3 "" H 9900 4300 50  0000 C CNN
+F 4 "R" H 9900 4300 60  0001 C CNN "Spice_Primitive"
+F 5 "68k" H 9900 4300 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 9900 4300 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    9900 4300
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R ledR_portD6
+U 1 1 587C4DAD
+P 9900 4200
+F 0 "ledR_portD6" V 10000 4200 50  0001 C CNN
+F 1 "390" V 9900 4200 50  0000 C CIN
+F 2 "Discret:R1" V 9830 4200 50  0001 C CNN
+F 3 "" H 9900 4200 50  0000 C CNN
+F 4 "R" H 9900 4200 60  0001 C CNN "Spice_Primitive"
+F 5 "68k" H 9900 4200 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 9900 4200 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    9900 4200
+	0    1    1    0   
+$EndComp
+$Comp
+L Switch:SW_Push avrBT_reset1
+U 1 1 587C8C96
+P 5350 2600
+F 0 "avrBT_reset1" H 5300 2750 50  0000 C CNN
+F 1 "Button" H 5350 2721 50  0001 C CNN
+F 2 "pnt:push_button" H 5350 2600 50  0001 C CNN
+F 3 "" H 5350 2600 50  0000 C CNN
+	1    5350 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR08
+U 1 1 587C8F10
+P 5050 2600
+F 0 "#PWR08" H 5050 2350 50  0001 C CNN
+F 1 "GND" H 5055 2427 50  0001 C CNN
+F 2 "" H 5050 2600 50  0000 C CNN
+F 3 "" H 5050 2600 50  0000 C CNN
+	1    5050 2600
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3450 4150
+NoConn ~ 2600 3650
+NoConn ~ 2600 3550
+$Comp
+L Device:Jumper_NO_Small ftJP_reset1
+U 1 1 587D16D3
+P 5350 2750
+F 0 "ftJP_reset1" H 5350 2700 50  0000 C CNN
+F 1 "Jumper" H 5350 2871 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02_Pitch2.54mm" H 5350 2750 50  0001 C CNN
+F 3 "" H 5350 2750 50  0000 C CNN
+	1    5350 2750
+	1    0    0    -1  
+$EndComp
+Text Label 6600 5150 0    60   ~ 0
+TXD
+Text Label 7150 5250 0    60   ~ 0
+RXD
+Text Label 6500 900  0    60   ~ 0
+MOSI
+Text Label 6850 1000 0    60   ~ 0
+MISO
+Text Label 7400 1100 0    60   ~ 0
+SCK
+Text Label 5650 2750 0    60   ~ 0
+reset
+Text Label 1950 4050 0    60   ~ 0
+VCCIO
+Text Label 1900 3750 0    60   ~ 0
+VCC_FT
+Text Label 1250 3250 0    60   ~ 0
+VCCUSB
+$Comp
+L pnt:FT232RL_pnt FT1
+U 1 1 58807094
+P 3250 3350
+F 0 "FT1" H 3250 4237 60  0000 C CNN
+F 1 "FT232RL_pnt" H 3250 4131 60  0000 C CNN
+F 2 "Housings_DIP:DIP-28_W15.24mm_Socket" H 3200 4150 60  0001 C CNN
+F 3 "" H 3250 3350 60  0001 C CNN
+	1    3250 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR09
+U 1 1 5881D83F
+P 2500 4450
+F 0 "#PWR09" H 2500 4300 50  0001 C CNN
+F 1 "+3.3V" H 2515 4623 50  0000 C CNN
+F 2 "" H 2500 4450 50  0000 C CNN
+F 3 "" H 2500 4450 50  0000 C CNN
+	1    2500 4450
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:+5V #PWR010
+U 1 1 5881D8B3
+P 1050 3350
+F 0 "#PWR010" H 1050 3200 50  0001 C CNN
+F 1 "+5V" H 1065 3523 50  0000 C CNN
+F 2 "" H 1050 3350 50  0000 C CNN
+F 3 "" H 1050 3350 50  0000 C CNN
+	1    1050 3350
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R ftR_amp3V3
+U 1 1 58825D23
+P 3050 4450
+F 0 "ftR_amp3V3" V 3150 4450 50  0000 C CNN
+F 1 "22k" V 3050 4450 50  0000 C CIN
+F 2 "Discret:R3" V 2980 4450 50  0001 C CNN
+F 3 "" H 3050 4450 50  0000 C CNN
+F 4 "R" H 3050 4450 60  0001 C CNN "Spice_Primitive"
+F 5 "68k" H 3050 4450 60  0001 C CNN "Spice_Model"
+F 6 "Y" H 3050 4450 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    3050 4450
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG011
+U 1 1 5885072C
+P 3400 4750
+F 0 "#FLG011" H 3400 4825 50  0001 C CNN
+F 1 "PWR_FLAG" H 3400 4924 50  0000 C CNN
+F 2 "" H 3400 4750 50  0000 C CNN
+F 3 "" H 3400 4750 50  0000 C CNN
+	1    3400 4750
+	1    0    0    -1  
+$EndComp
+Text Notes 1050 3650 0    20   ~ 0
+usb pwr
+Text Notes 1050 3800 0    20   ~ 0
+ft pwr
+Text Notes 1050 4050 0    20   ~ 0
+ft io select
+Text Notes 1050 4400 0    20   ~ 0
+3V3 pwr
+Text Notes 1050 4550 0    20   ~ 0
+free VCC
+NoConn ~ 3900 3950
+NoConn ~ 3900 3750
+$Comp
+L power:PWR_FLAG #FLG012
+U 1 1 588520CB
+P 2400 2700
+F 0 "#FLG012" H 2400 2775 50  0001 C CNN
+F 1 "PWR_FLAG" H 2400 2874 50  0000 C CNN
+F 2 "" H 2400 2700 50  0000 C CNN
+F 3 "" H 2400 2700 50  0000 C CNN
+	1    2400 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG013
+U 1 1 588520E5
+P 1800 2800
+F 0 "#FLG013" H 1800 2875 50  0001 C CNN
+F 1 "PWR_FLAG" H 1800 2974 50  0000 C CNN
+F 2 "" H 1800 2800 50  0000 C CNN
+F 3 "" H 1800 2800 50  0000 C CNN
+	1    1800 2800
+	1    0    0    -1  
+$EndComp
+Text Label 2700 4850 0    60   ~ 0
+VCC
+$Comp
+L Connector_Generic:Conn_01x05 ftP_usb1
+U 1 1 58B3F7E8
+P 750 3150
+F 0 "ftP_usb1" V 965 3145 50  0001 C CNN
+F 1 "CONN_01X05" V 874 3145 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 750 3150 50  0001 C CNN
+F 3 "" H 750 3150 50  0000 C CNN
+F 4 "N" H 750 3150 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    750  3150
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG014
+U 1 1 58B41A43
+P 1050 2800
+F 0 "#FLG014" H 1050 2875 50  0001 C CNN
+F 1 "PWR_FLAG" H 1050 2974 50  0000 C CNN
+F 2 "" H 1050 2800 50  0000 C CNN
+F 3 "" H 1050 2800 50  0000 C CNN
+	1    1050 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 4050 4000 3650
+Wire Wire Line
+	4000 3650 3900 3650
+Wire Wire Line
+	3900 3550 4200 3550
+Wire Wire Line
+	4200 3550 4200 4050
+Wire Wire Line
+	4200 4850 4200 4750
+Wire Wire Line
+	900  4850 950  4850
+Wire Wire Line
+	950  3250 1050 3250
+Wire Wire Line
+	4000 4750 4000 4850
+Connection ~ 4000 4850
+Wire Wire Line
+	4000 4450 4000 4350
+Wire Wire Line
+	4200 4450 4200 4350
+Wire Wire Line
+	2900 4200 3050 4200
+Wire Wire Line
+	3150 4200 3150 4150
+Wire Wire Line
+	3250 4200 3250 4150
+Connection ~ 3150 4200
+Wire Wire Line
+	3350 4150 3350 4200
+Connection ~ 3250 4200
+Wire Wire Line
+	3050 4150 3050 4200
+Connection ~ 3050 4200
+Connection ~ 3350 4200
+Wire Wire Line
+	900  4500 950  4500
+Connection ~ 950  4500
+Wire Wire Line
+	900  4000 950  4000
+Connection ~ 950  4000
+Wire Wire Line
+	550  4000 600  4000
+Wire Wire Line
+	550  2800 550  3600
+Wire Wire Line
+	550  4500 600  4500
+Connection ~ 550  4000
+Wire Wire Line
+	5600 3100 5700 3100
+Wire Wire Line
+	5700 3450 5700 3100
+Connection ~ 5700 3100
+Wire Wire Line
+	5200 2900 5200 3100
+Wire Wire Line
+	5200 2900 6000 2900
+Wire Wire Line
+	5300 3100 5200 3100
+Connection ~ 5200 3100
+Wire Wire Line
+	5200 3750 5200 3850
+Wire Wire Line
+	5200 3850 5700 3850
+Wire Wire Line
+	5700 3850 5700 3750
+Wire Wire Line
+	950  4400 950  4500
+Wire Wire Line
+	7150 2100 7150 2300
+Connection ~ 4200 4850
+Wire Wire Line
+	4950 2100 5700 2100
+Wire Wire Line
+	4450 2750 4450 5250
+Wire Wire Line
+	4450 5250 9550 5250
+Wire Wire Line
+	8300 3500 8650 3500
+Wire Wire Line
+	8300 3600 8650 3600
+Wire Wire Line
+	4550 5150 9450 5150
+Wire Wire Line
+	8300 3700 8650 3700
+Wire Wire Line
+	10800 3900 10050 3900
+Wire Wire Line
+	10500 3800 10050 3800
+Wire Wire Line
+	10050 3700 10200 3700
+Wire Wire Line
+	11150 3700 11150 3800
+Wire Wire Line
+	11150 3900 11100 3900
+Wire Wire Line
+	11150 3800 10800 3800
+Connection ~ 11150 3900
+Wire Wire Line
+	10500 3700 11150 3700
+Connection ~ 11150 3800
+Wire Wire Line
+	2400 2750 2600 2750
+Connection ~ 950  4850
+Wire Wire Line
+	550  4850 600  4850
+Connection ~ 550  4500
+Wire Wire Line
+	1800 2850 2600 2850
+Wire Wire Line
+	2250 3250 2250 3350
+Wire Wire Line
+	2600 3350 2250 3350
+Connection ~ 2250 3350
+Wire Wire Line
+	1650 3950 2250 3950
+Wire Wire Line
+	2400 4050 1650 4050
+Wire Wire Line
+	2400 2700 2400 2750
+Connection ~ 1800 4850
+Wire Wire Line
+	950  3600 950  4000
+Wire Wire Line
+	1800 2800 1800 2850
+Wire Wire Line
+	1650 4250 2100 4250
+Wire Wire Line
+	2500 3850 2600 3850
+Wire Wire Line
+	1650 4150 2500 4150
+Connection ~ 2500 4150
+Wire Wire Line
+	1650 3850 1800 3850
+Wire Wire Line
+	1800 3850 1800 4550
+Connection ~ 1650 3250
+Wire Wire Line
+	1650 3750 1800 3750
+Connection ~ 1800 3750
+Wire Wire Line
+	2250 3750 2250 3950
+Wire Wire Line
+	1650 3250 1650 3550
+Wire Wire Line
+	1700 3650 1650 3650
+Wire Wire Line
+	1700 3650 1700 3600
+Wire Wire Line
+	1700 3600 950  3600
+Wire Wire Line
+	1650 4700 1650 4650
+Wire Wire Line
+	2500 4450 2400 4450
+Wire Wire Line
+	2500 3850 2500 4150
+Wire Wire Line
+	1900 4650 1900 4450
+Wire Wire Line
+	1900 4450 1650 4450
+Wire Wire Line
+	1650 4550 1800 4550
+Connection ~ 2500 4450
+Wire Wire Line
+	4950 4850 4950 2100
+Wire Wire Line
+	3900 3450 4650 3450
+Wire Wire Line
+	4650 3450 4650 5050
+Wire Wire Line
+	4650 5050 9350 5050
+Wire Wire Line
+	4750 4950 4750 3850
+Wire Wire Line
+	4750 3850 3900 3850
+Wire Wire Line
+	9200 3900 9750 3900
+Wire Wire Line
+	9750 3800 9200 3800
+Wire Wire Line
+	9750 3700 9200 3700
+Wire Wire Line
+	8650 3800 8300 3800
+Wire Wire Line
+	8300 3900 8650 3900
+Wire Wire Line
+	2600 4200 2500 4200
+Connection ~ 2500 4200
+Wire Wire Line
+	9200 4000 9350 4000
+Wire Wire Line
+	9350 4000 9350 5050
+Wire Wire Line
+	9200 3600 9450 3600
+Wire Wire Line
+	9450 3600 9450 5150
+Wire Wire Line
+	9200 3500 9550 3500
+Wire Wire Line
+	9550 3500 9550 5250
+Wire Wire Line
+	3900 3250 4850 3250
+Wire Wire Line
+	4850 3250 4850 1100
+Wire Wire Line
+	4850 1100 9500 1100
+Wire Wire Line
+	9500 1100 9500 3300
+Wire Wire Line
+	3900 3050 4750 3050
+Wire Wire Line
+	4750 3050 4750 1000
+Wire Wire Line
+	4750 1000 9400 1000
+Wire Wire Line
+	9400 1000 9400 3200
+Wire Wire Line
+	3900 3350 4650 3350
+Wire Wire Line
+	4650 3350 4650 900 
+Wire Wire Line
+	4650 900  9300 900 
+Wire Wire Line
+	9300 900  9300 3100
+Wire Wire Line
+	8300 2600 8500 2600
+Wire Wire Line
+	8300 2700 8500 2700
+Wire Wire Line
+	8300 2800 8500 2800
+Wire Wire Line
+	8300 2900 8500 2900
+Wire Wire Line
+	8500 3000 8300 3000
+Wire Wire Line
+	8500 3100 8300 3100
+Wire Wire Line
+	8300 3200 8500 3200
+Wire Wire Line
+	8500 3300 8300 3300
+Wire Wire Line
+	9300 3100 9050 3100
+Wire Wire Line
+	9400 3200 9050 3200
+Wire Wire Line
+	9500 3300 9050 3300
+Wire Wire Line
+	8650 4100 8500 4100
+Wire Wire Line
+	8500 4100 8500 4000
+Wire Wire Line
+	8500 4000 8300 4000
+Wire Wire Line
+	8650 4000 8550 4000
+Wire Wire Line
+	8550 4000 8550 4950
+Wire Wire Line
+	8550 4950 4750 4950
+Wire Wire Line
+	8650 4200 8650 4300
+Wire Wire Line
+	8650 4300 9750 4300
+Wire Wire Line
+	8300 4100 8300 4150
+Wire Wire Line
+	8300 4150 9250 4150
+Wire Wire Line
+	9250 4150 9250 4100
+Wire Wire Line
+	9250 4100 9200 4100
+Wire Wire Line
+	10200 4200 10050 4200
+Wire Wire Line
+	10500 4200 11150 4200
+Connection ~ 11150 4200
+Wire Wire Line
+	9750 4200 9200 4200
+Wire Wire Line
+	10500 4300 10050 4300
+Wire Wire Line
+	10800 4300 11150 4300
+Connection ~ 11150 4300
+Wire Wire Line
+	5950 2200 5950 2100
+Connection ~ 5950 2100
+Wire Wire Line
+	5550 2600 5700 2600
+Connection ~ 5950 2600
+Wire Wire Line
+	5700 2100 5700 2200
+Connection ~ 5700 2100
+Wire Wire Line
+	5700 2600 5700 2500
+Connection ~ 5700 2600
+Wire Wire Line
+	5050 2600 5150 2600
+Wire Wire Line
+	5950 2750 5450 2750
+Wire Wire Line
+	5050 2750 5250 2750
+Wire Wire Line
+	5950 2500 5950 2600
+Wire Wire Line
+	5050 3450 5050 2750
+Connection ~ 4650 3450
+Connection ~ 1800 4550
+Wire Wire Line
+	9050 3000 9200 3000
+Wire Wire Line
+	9200 3000 9200 800 
+Wire Wire Line
+	9200 800  4200 800 
+Wire Wire Line
+	4200 800  4200 3150
+Wire Wire Line
+	4200 3150 3900 3150
+Wire Wire Line
+	9050 2900 9100 2900
+Wire Wire Line
+	9100 2900 9100 700 
+Wire Wire Line
+	9100 700  4100 700 
+Wire Wire Line
+	4100 700  4100 2950
+Wire Wire Line
+	4100 2950 3900 2950
+Wire Wire Line
+	9600 2600 9050 2600
+Wire Wire Line
+	9700 2700 9050 2700
+Wire Wire Line
+	9050 2800 10600 2800
+Wire Wire Line
+	10400 2350 10400 3150
+Wire Wire Line
+	10300 3150 10300 2600
+Wire Wire Line
+	10300 2600 9950 2600
+Wire Wire Line
+	9950 2600 9950 1750
+Wire Wire Line
+	10900 3000 10900 3100
+Wire Wire Line
+	10900 3100 10500 3100
+Wire Wire Line
+	10500 3100 10500 3150
+Wire Wire Line
+	9000 2100 9000 1250
+Wire Wire Line
+	9000 1250 9950 1250
+Wire Wire Line
+	10900 1250 10900 2500
+Connection ~ 7150 2100
+Wire Wire Line
+	10400 1950 10400 1250
+Connection ~ 10400 1250
+Wire Wire Line
+	9950 1350 9950 1250
+Connection ~ 9950 1250
+Wire Wire Line
+	10200 3150 10200 2500
+Wire Wire Line
+	10200 2500 10900 2500
+Connection ~ 10900 2500
+Wire Wire Line
+	7150 4400 7150 4500
+Wire Wire Line
+	10100 3150 10100 3100
+Wire Wire Line
+	10100 3100 9650 3100
+Wire Wire Line
+	9650 3100 9650 4500
+Wire Wire Line
+	9650 4500 7150 4500
+Connection ~ 7150 4500
+Wire Notes Line
+	1350 3550 1300 3550
+Wire Notes Line
+	1300 3550 1300 3650
+Wire Notes Line
+	1300 3650 1350 3650
+Wire Notes Line
+	1350 3750 1300 3750
+Wire Notes Line
+	1300 3750 1300 3850
+Wire Notes Line
+	1300 3850 1350 3850
+Wire Notes Line
+	1350 3950 1300 3950
+Wire Notes Line
+	1300 3950 1300 4150
+Wire Notes Line
+	1300 4050 1350 4050
+Wire Notes Line
+	1300 4150 1350 4150
+Wire Notes Line
+	1350 4250 1300 4250
+Wire Notes Line
+	1300 4250 1300 4450
+Wire Notes Line
+	1300 4350 1350 4350
+Wire Notes Line
+	1300 4450 1350 4450
+Wire Notes Line
+	1350 4550 1300 4550
+Wire Notes Line
+	1350 4650 1300 4650
+Wire Wire Line
+	3050 4650 3050 4600
+Wire Wire Line
+	1650 4350 1650 4300
+Wire Wire Line
+	1650 4300 1150 4300
+Wire Wire Line
+	1150 4300 1150 4000
+Wire Notes Line
+	1250 4250 1200 4250
+Wire Notes Line
+	1200 4250 1200 3550
+Wire Notes Line
+	1200 3550 1250 3550
+Wire Wire Line
+	3400 4750 3400 4850
+Connection ~ 3400 4850
+Connection ~ 1800 2850
+Connection ~ 2400 2750
+Wire Wire Line
+	550  2800 1050 2800
+Wire Wire Line
+	1050 2800 1050 2950
+Wire Wire Line
+	1050 2950 950  2950
+Wire Wire Line
+	650  3600 550  3600
+Connection ~ 550  3600
+Wire Wire Line
+	1050 3350 950  3350
+Connection ~ 1050 3250
+Wire Wire Line
+	1050 3250 1050 3350
+$Comp
+L power:PWR_FLAG #FLG015
+U 1 1 58B4217C
+P 1300 3300
+F 0 "#FLG015" H 1300 3375 50  0001 C CNN
+F 1 "PWR_FLAG" H 1300 3474 50  0000 C CNN
+F 2 "" H 1300 3300 50  0000 C CNN
+F 3 "" H 1300 3300 50  0000 C CNN
+	1    1300 3300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1300 3300 1300 3250
+Connection ~ 1300 3250
+Text Notes 3025 3175 0    39   ~ 0
++ 3
+Text Notes 3025 3075 0    39   ~ 0
+- 2
+Wire Wire Line
+	950  3150 2050 3150
+Wire Wire Line
+	2050 3150 2050 3050
+Wire Wire Line
+	2050 3050 2600 3050
+Wire Wire Line
+	2600 3150 2100 3150
+Wire Wire Line
+	2100 3150 2100 3100
+Wire Wire Line
+	2100 3100 2000 3100
+Wire Wire Line
+	2000 3100 2000 3050
+Wire Wire Line
+	2000 3050 950  3050
+Text Notes 550  3250 0    39   ~ 0
+1 vcc
+Text Notes 550  3350 0    39   ~ 0
+1 vcc
+Text Notes 550  3150 0    39   ~ 0
+2 D-
+Text Notes 550  3050 0    39   ~ 0
+3 D+
+Text Notes 550  2950 0    39   ~ 0
+4 gnd
+Wire Wire Line
+	9700 2150 9700 2700
+Wire Wire Line
+	9600 1550 9600 2600
+Wire Wire Line
+	4450 2750 3900 2750
+Wire Wire Line
+	3900 2850 4550 2850
+Wire Wire Line
+	4550 2850 4550 5150
+Wire Wire Line
+	9600 1550 9650 1550
+Wire Wire Line
+	10100 2150 9700 2150
+Wire Wire Line
+	4000 4850 4200 4850
+Wire Wire Line
+	3150 4200 3250 4200
+Wire Wire Line
+	3250 4200 3350 4200
+Wire Wire Line
+	3050 4200 3150 4200
+Wire Wire Line
+	3050 4200 3050 4300
+Wire Wire Line
+	3350 4200 3350 4300
+Wire Wire Line
+	950  4500 950  4850
+Wire Wire Line
+	950  4000 1150 4000
+Wire Wire Line
+	950  4000 950  4100
+Wire Wire Line
+	550  4000 550  4500
+Wire Wire Line
+	5700 3100 6000 3100
+Wire Wire Line
+	5200 3100 5200 3450
+Wire Wire Line
+	4200 4850 4950 4850
+Wire Wire Line
+	11150 3900 11150 4200
+Wire Wire Line
+	11150 3800 11150 3900
+Wire Wire Line
+	950  4850 1800 4850
+Wire Wire Line
+	550  4500 550  4850
+Wire Wire Line
+	2250 3350 2250 3450
+Wire Wire Line
+	1800 4850 3400 4850
+Wire Wire Line
+	2500 4150 2500 4200
+Wire Wire Line
+	1650 3250 1950 3250
+Wire Wire Line
+	1800 3750 2250 3750
+Wire Wire Line
+	2500 4200 2500 4450
+Wire Wire Line
+	11150 4200 11150 4300
+Wire Wire Line
+	11150 4300 11150 4750
+Wire Wire Line
+	5950 2100 7150 2100
+Wire Wire Line
+	5950 2600 6000 2600
+Wire Wire Line
+	5950 2600 5950 2750
+Wire Wire Line
+	5700 2100 5950 2100
+Wire Wire Line
+	5700 2600 5950 2600
+Wire Wire Line
+	4650 3450 5050 3450
+Wire Wire Line
+	1800 4550 1800 4850
+Wire Wire Line
+	7150 2100 9000 2100
+Wire Wire Line
+	10400 1250 10900 1250
+Wire Wire Line
+	9950 1250 10400 1250
+Wire Wire Line
+	10900 2500 10900 2600
+Wire Wire Line
+	7150 4500 7150 4650
+Wire Wire Line
+	3400 4850 4000 4850
+Wire Wire Line
+	1800 2850 1800 3750
+Wire Wire Line
+	2400 2750 2400 4050
+Wire Wire Line
+	550  3600 550  4000
+Wire Wire Line
+	1050 3250 1300 3250
+Wire Wire Line
+	1300 3250 1650 3250
+Wire Wire Line
+	1900 4650 2100 4650
+Connection ~ 2100 4650
+Wire Wire Line
+	2100 4650 3050 4650
+$EndSCHEMATC
