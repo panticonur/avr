@@ -287,7 +287,7 @@ F 3 "" H 3150 4750 50  0000 C CNN
 $EndComp
 Text Label 5300 4100 1    60   ~ 0
 PWREN
-Text Label 10300 3000 0    60   ~ 0
+Text Label 10500 3000 0    60   ~ 0
 resumePC
 $Comp
 L Connector_Generic:Conn_01x07 avrP_portD1
@@ -316,25 +316,25 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x08 avrP_portB1
 U 1 1 587C3AC6
-P 9900 2900
-F 0 "avrP_portB1" V 10115 2895 50  0001 C CNN
-F 1 "CONN_01X08" V 10024 2895 50  0001 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 9900 2900 50  0001 C CNN
-F 3 "" H 9900 2900 50  0000 C CNN
-F 4 "N" H 9900 2900 60  0001 C CNN "Spice_Netlist_Enabled"
-	1    9900 2900
+P 10150 2900
+F 0 "avrP_portB1" V 10365 2895 50  0001 C CNN
+F 1 "CONN_01X08" V 10274 2895 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x08_Pitch2.54mm" H 10150 2900 50  0001 C CNN
+F 3 "" H 10150 2900 50  0000 C CNN
+F 4 "N" H 10150 2900 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    10150 2900
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x06 avrP_portB2
 U 1 1 587C4332
-P 10050 3000
-F 0 "avrP_portB2" V 10265 2995 50  0001 C CNN
-F 1 "CONN_01X06" V 10174 2995 50  0001 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 10050 3000 50  0001 C CNN
-F 3 "" H 10050 3000 50  0000 C CNN
-F 4 "N" H 10050 3000 60  0001 C CNN "Spice_Netlist_Enabled"
-	1    10050 3000
+P 10300 3000
+F 0 "avrP_portB2" V 10515 2995 50  0001 C CNN
+F 1 "CONN_01X06" V 10424 2995 50  0001 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x06_Pitch2.54mm" H 10300 3000 50  0001 C CNN
+F 3 "" H 10300 3000 50  0000 C CNN
+F 4 "N" H 10300 3000 60  0001 C CNN "Spice_Netlist_Enabled"
+	1    10300 3000
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -413,11 +413,11 @@ Text Label 10250 3600 0    60   ~ 0
 TXD
 Text Label 10250 3500 0    60   ~ 0
 RXD
-Text Label 10300 3200 0    60   ~ 0
+Text Label 10500 3200 0    60   ~ 0
 MOSI
-Text Label 10300 3300 0    60   ~ 0
+Text Label 10500 3300 0    60   ~ 0
 MISO
-Text Label 10300 3100 0    60   ~ 0
+Text Label 10500 3100 0    60   ~ 0
 SCK
 Text Label 7050 2600 0    60   ~ 0
 reset
@@ -574,9 +574,9 @@ Text Notes 2650 4350 0    30   ~ 0
 3V3
 Text Notes 2650 3650 0    30   ~ 0
 USB 5V
-Text Label 10300 2900 0    60   ~ 0
+Text Label 10500 2900 0    60   ~ 0
 RTS
-Text Label 10300 2800 0    60   ~ 0
+Text Label 10500 2800 0    60   ~ 0
 DTR
 $Comp
 L Device:R ftR_reset1
@@ -723,11 +723,11 @@ Text Notes 9850 3500 0    39   ~ 0
 g
 Text Notes 9850 3600 0    39   ~ 0
 b
-Text Notes 9850 3100 0    39   ~ 0
+Text Notes 10100 3100 0    39   ~ 0
 g
-Text Notes 9850 3200 0    39   ~ 0
+Text Notes 10100 3200 0    39   ~ 0
 y
-Text Notes 9850 3300 0    39   ~ 0
+Text Notes 10100 3300 0    39   ~ 0
 b
 Text Notes 6800 2850 0    39   ~ 0
 w
@@ -763,22 +763,22 @@ Text Label 9650 4000 0    60   ~ 0
 PD5
 Text Label 9650 4100 0    60   ~ 0
 PD6
-Text Label 9650 2600 0    60   ~ 0
+Text Label 9600 2600 0    60   ~ 0
 PB0
-Text Label 9650 2700 0    60   ~ 0
+Text Label 9600 2700 0    60   ~ 0
 PB1
-Text Label 9650 2800 0    60   ~ 0
+Text Label 9600 2800 0    60   ~ 0
 PB2
-Text Label 9650 2900 0    60   ~ 0
+Text Label 9600 2900 0    60   ~ 0
 PB3
-Text Label 9650 3000 0    60   ~ 0
+Text Label 9600 3000 0    60   ~ 0
 PB4
-Text Label 9650 3100 0    60   ~ 0
-PB5
-Text Label 9650 3200 0    60   ~ 0
-PB6
-Text Label 9650 3300 0    60   ~ 0
-PB7
+Text Label 9600 3100 0    60   ~ 0
+PB5-MOSI
+Text Label 9600 3200 0    60   ~ 0
+PB6-MISO
+Text Label 9600 3300 0    60   ~ 0
+PB7-SCK
 Wire Wire Line
 	5100 3650 5500 3650
 Wire Wire Line
@@ -893,7 +893,7 @@ Wire Wire Line
 Wire Wire Line
 	6650 3450 6650 2600
 Wire Wire Line
-	10250 3000 10750 3000
+	10500 3000 10750 3000
 Wire Wire Line
 	5100 3150 6050 3150
 Wire Wire Line
@@ -1168,40 +1168,40 @@ Wire Wire Line
 Wire Wire Line
 	9600 4100 9700 4100
 Wire Wire Line
-	9700 3300 9600 3300
+	9950 3300 9600 3300
 Wire Wire Line
-	9600 3200 9700 3200
+	9600 3200 9950 3200
 Wire Wire Line
-	9700 3100 9600 3100
+	9950 3100 9600 3100
 Wire Wire Line
-	9600 3000 9700 3000
+	9600 3000 9950 3000
 Wire Wire Line
-	9700 2900 9600 2900
+	9950 2900 9600 2900
 Wire Wire Line
-	9600 2800 9700 2800
+	9600 2800 9950 2800
 Wire Wire Line
-	9700 2700 9600 2700
+	9950 2700 9600 2700
 Wire Wire Line
-	9600 2600 9700 2600
+	9600 2600 9950 2600
 Wire Wire Line
 	11050 1600 11050 3100
 Wire Wire Line
-	11050 3100 10250 3100
+	11050 3100 10500 3100
 Wire Wire Line
-	10850 3200 10250 3200
+	10850 3200 10500 3200
 Wire Wire Line
-	10950 3300 10250 3300
+	10950 3300 10500 3300
 Wire Wire Line
-	10550 2900 10250 2900
+	10550 2900 10500 2900
 Wire Wire Line
-	10650 2800 10250 2800
+	10650 2800 10500 2800
 Wire Wire Line
 	10650 1200 10650 2800
-Text Notes 10000 3100 0    39   ~ 0
+Text Notes 10250 3200 0    39   ~ 0
 g
-Text Notes 10000 3300 0    39   ~ 0
+Text Notes 10250 3100 0    39   ~ 0
 b
-Text Notes 10000 3200 0    39   ~ 0
+Text Notes 10250 3300 0    39   ~ 0
 y
 Text Notes 5550 4400 0    60   ~ 0
 b

@@ -1,0 +1,13 @@
+{
+  global:
+    list_devices;
+    open_device;
+    close_device;
+    purge;
+    start_work;
+    is_working;
+    stop_work;
+    command1;
+    # explicitly list symbols to be exported
+  local: *;         # hide everything else
+};

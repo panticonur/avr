@@ -31,11 +31,11 @@ eload:
 eload1:
     OUT  EEARL, YL
     .IFDEF EEARH
-	OUT  EEARH, YH
+    OUT  EEARH, YH
     .ENDIF
     SBI  EECR, EERE ; read enable
     IN   TEMP, EEDR
-	ST   X+, TEMP
+    ST   X+, TEMP
     ret
 
 ;*** estore function copy memory to eeprom
@@ -77,17 +77,17 @@ estore:
 ;U r26-r29 TEMP
 estore1:
     estore1_wait:
-      SBIC EECR, EEPE
-      RJMP estore1_wait
+        SBIC EECR, EEPE
+        RJMP estore1_wait
     OUT  EEARL, XL
     .IFDEF EEARH
-	OUT  EEARH, XH
+    OUT  EEARH, XH
     .ENDIF
     ld   TEMP, Y+
-	OUT  EEDR, TEMP
+    OUT  EEDR, TEMP
     SBI  EECR, EEMPE
     SBI  EECR, EEPE
-	estore1_wait2:
-      SBIC EECR, EEPE
-      RJMP estore1_wait2
+    estore1_wait2:
+        SBIC EECR, EEPE
+            RJMP estore1_wait2
     ret

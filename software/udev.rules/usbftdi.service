@@ -1,0 +1,10 @@
+[Unit]
+Description=FTDI unbind VCP
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/local/bin/usbftdi.sh
+
+[Install]
+WantedBy=multi-user.target
