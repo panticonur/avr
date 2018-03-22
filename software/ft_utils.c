@@ -152,8 +152,8 @@ FT_STATUS FTUTIL_WaitData(FT_HANDLE ftHandle, DWORD bytesWait, int exactlyBytes,
 	}
 	while (bytes<bytesWait);
 	*bytesAvailable = bytes;
-	if (verbose)
-		printf("\n");
+	//if (verbose)
+	//	printf("\n");
 	if (exactlyBytes) {
 		if (bytes!=bytesWait) {
 			printf("ERROR FTUTIL_WaitData - Available invalid number of bytes %d (expected %d)\n", bytes, bytesWait);

@@ -1,0 +1,16 @@
+#yattor
+programmer
+  id    = "tf1";
+  desc  = "ft232rl programmer";
+  type  = "ftdi_syncbb";
+  connection_type = usb;
+  miso  = 3;
+  sck   = 5;
+  mosi  = 6;
+  reset = 7;
+;
+
+#http://easyelectronics.ru/skorostnoj-avr-usb-programmator-na-ft232rl-bez-vspomogatelnogo-kontrollera.html
+
+# цифры напротив miso sck mosi reset берутся из таблицы 2.1 из файла AN_232R-01_Bit_Bang_Mode_Available_For_FT232R_and_Ft245R.pdf
+# и соответствуют Bit Bang data Bus bits , а не номерам пинов
