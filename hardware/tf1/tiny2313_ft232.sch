@@ -258,7 +258,7 @@ F 6 "Y" H 5700 2350 60  0001 C CNN "Spice_Netlist_Enabled"
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCU_Atmel_ATTINY:ATTINY2313-20PU AVR1
+L MCU_Microchip_ATtiny:ATtiny2313-20PU AVR1
 U 1 1 5876B326
 P 7150 3400
 F 0 "AVR1" H 7150 3350 50  0000 C CNN
@@ -788,8 +788,6 @@ Connection ~ 5700 3100
 Wire Wire Line
 	5200 2900 5200 3100
 Wire Wire Line
-	5200 2900 6000 2900
-Wire Wire Line
 	5300 3100 5200 3100
 Connection ~ 5200 3100
 Wire Wire Line
@@ -810,13 +808,7 @@ Wire Wire Line
 Wire Wire Line
 	4450 5250 9550 5250
 Wire Wire Line
-	8300 3500 8650 3500
-Wire Wire Line
-	8300 3600 8650 3600
-Wire Wire Line
 	4550 5150 9450 5150
-Wire Wire Line
-	8300 3700 8650 3700
 Wire Wire Line
 	10800 3900 10050 3900
 Wire Wire Line
@@ -914,10 +906,6 @@ Wire Wire Line
 Wire Wire Line
 	9750 3700 9200 3700
 Wire Wire Line
-	8650 3800 8300 3800
-Wire Wire Line
-	8300 3900 8650 3900
-Wire Wire Line
 	2600 4200 2500 4200
 Connection ~ 2500 4200
 Wire Wire Line
@@ -957,22 +945,6 @@ Wire Wire Line
 Wire Wire Line
 	9300 900  9300 3100
 Wire Wire Line
-	8300 2600 8500 2600
-Wire Wire Line
-	8300 2700 8500 2700
-Wire Wire Line
-	8300 2800 8500 2800
-Wire Wire Line
-	8300 2900 8500 2900
-Wire Wire Line
-	8500 3000 8300 3000
-Wire Wire Line
-	8500 3100 8300 3100
-Wire Wire Line
-	8300 3200 8500 3200
-Wire Wire Line
-	8500 3300 8300 3300
-Wire Wire Line
 	9300 3100 9050 3100
 Wire Wire Line
 	9400 3200 9050 3200
@@ -982,8 +954,6 @@ Wire Wire Line
 	8650 4100 8500 4100
 Wire Wire Line
 	8500 4100 8500 4000
-Wire Wire Line
-	8500 4000 8300 4000
 Wire Wire Line
 	8650 4000 8550 4000
 Wire Wire Line
@@ -1251,8 +1221,6 @@ Wire Wire Line
 Wire Wire Line
 	550  4000 550  4500
 Wire Wire Line
-	5700 3100 6000 3100
-Wire Wire Line
 	5200 3100 5200 3450
 Wire Wire Line
 	4200 4850 4950 4850
@@ -1282,8 +1250,6 @@ Wire Wire Line
 	11150 4300 11150 4750
 Wire Wire Line
 	5950 2100 7150 2100
-Wire Wire Line
-	5950 2600 6000 2600
 Wire Wire Line
 	5950 2600 5950 2750
 Wire Wire Line
@@ -1321,4 +1287,40 @@ Wire Wire Line
 Connection ~ 2100 4650
 Wire Wire Line
 	2100 4650 3050 4650
+Wire Wire Line
+	5700 3100 6050 3100
+Wire Wire Line
+	5200 2900 6050 2900
+Wire Wire Line
+	5950 2600 6050 2600
+Wire Wire Line
+	8250 2600 8500 2600
+Wire Wire Line
+	8250 2700 8500 2700
+Wire Wire Line
+	8250 2800 8500 2800
+Wire Wire Line
+	8250 2900 8500 2900
+Wire Wire Line
+	8250 3000 8500 3000
+Wire Wire Line
+	8250 3100 8500 3100
+Wire Wire Line
+	8250 3200 8500 3200
+Wire Wire Line
+	8250 3300 8500 3300
+Wire Wire Line
+	8250 3500 8650 3500
+Wire Wire Line
+	8250 3600 8650 3600
+Wire Wire Line
+	8250 3700 8650 3700
+Wire Wire Line
+	8250 3800 8650 3800
+Wire Wire Line
+	8250 3900 8650 3900
+Wire Wire Line
+	8250 4000 8500 4000
+Wire Wire Line
+	8300 4100 8250 4100
 $EndSCHEMATC

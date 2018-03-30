@@ -162,7 +162,7 @@ F 6 "Y" H 7600 2000 60  0001 C CNN "Spice_Netlist_Enabled"
 	1    0    0    -1  
 $EndComp
 $Comp
-L MCU_Atmel_ATTINY:ATTINY2313-20PU AVR1
+L MCU_Microchip_ATtiny:ATtiny2313-20PU AVR1
 U 1 1 5876B326
 P 8450 3400
 F 0 "AVR1" H 8450 3350 50  0000 C CNN
@@ -1154,36 +1154,6 @@ Wire Notes Line
 Wire Notes Line
 	6900 2900 6900 2850
 Wire Wire Line
-	9600 3500 9700 3500
-Wire Wire Line
-	9700 3600 9600 3600
-Wire Wire Line
-	9600 3700 9700 3700
-Wire Wire Line
-	9700 3800 9600 3800
-Wire Wire Line
-	9600 3900 9700 3900
-Wire Wire Line
-	9700 4000 9600 4000
-Wire Wire Line
-	9600 4100 9700 4100
-Wire Wire Line
-	9950 3300 9600 3300
-Wire Wire Line
-	9600 3200 9950 3200
-Wire Wire Line
-	9950 3100 9600 3100
-Wire Wire Line
-	9600 3000 9950 3000
-Wire Wire Line
-	9950 2900 9600 2900
-Wire Wire Line
-	9600 2800 9950 2800
-Wire Wire Line
-	9950 2700 9600 2700
-Wire Wire Line
-	9600 2600 9950 2600
-Wire Wire Line
 	11050 1600 11050 3100
 Wire Wire Line
 	11050 3100 10500 3100
@@ -1225,8 +1195,6 @@ Wire Wire Line
 	2350 4700 2350 4800
 Wire Wire Line
 	1750 4700 1750 5200
-Wire Wire Line
-	7250 3100 7300 3100
 Wire Wire Line
 	6750 3100 6750 3350
 Wire Wire Line
@@ -1295,7 +1263,6 @@ Connection ~ 1750 2950
 Wire Wire Line
 	7000 2600 7300 2600
 Connection ~ 7000 2600
-Connection ~ 7300 2600
 $Comp
 L power:GND #PWR02
 U 1 1 57FBCCB8
@@ -1309,4 +1276,41 @@ F 3 "" H 11050 5150 50  0000 C CNN
 $EndComp
 Connection ~ 11050 5150
 Connection ~ 4550 4450
+Wire Wire Line
+	7300 2600 7350 2600
+Connection ~ 7300 2600
+Wire Wire Line
+	7350 2900 7300 2900
+Wire Wire Line
+	7250 3100 7350 3100
+Wire Wire Line
+	9550 2600 9950 2600
+Wire Wire Line
+	9550 2700 9950 2700
+Wire Wire Line
+	9550 2800 9950 2800
+Wire Wire Line
+	9550 2900 9950 2900
+Wire Wire Line
+	9550 3000 9950 3000
+Wire Wire Line
+	9550 3100 9950 3100
+Wire Wire Line
+	9550 3200 9950 3200
+Wire Wire Line
+	9550 3300 9950 3300
+Wire Wire Line
+	9550 3500 9700 3500
+Wire Wire Line
+	9550 3600 9700 3600
+Wire Wire Line
+	9550 3700 9700 3700
+Wire Wire Line
+	9550 3800 9700 3800
+Wire Wire Line
+	9550 3900 9700 3900
+Wire Wire Line
+	9550 4000 9700 4000
+Wire Wire Line
+	9550 4100 9700 4100
 $EndSCHEMATC
