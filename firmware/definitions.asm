@@ -4,6 +4,9 @@
 .equ MCU_MHZ = 20 ; частота кварца в MHz для вычисления задержек DELAY16 DELAY24
 .def TEMP					= r25
 .def UART_byte				= r24
+.def DELAY_24_r				= r28
+.def DELAY_16_r				= r27
+.def DELAY_08_r				= r26
 
 ;***********************************************************  project specific registers summary
 ; здесь описывать регистры, используемые в проекте
@@ -37,7 +40,7 @@
 	OUT5 UCSRC, UPM1, UPM0, USBS, UCSZ1, UCSZ0
 .ENDMACRO
 
-.MACRO ya_UART_conf ; ~500K-8-N-1  400clk/byte
+.MACRO UART_conf_500K ; ~500K-8-N-1  400clk/byte
 	OUT_ UBRRH, 0
 	OUT_ UBRRL, 0x4
 	;OUT_ UCSRA, 0 ; Normal Speed

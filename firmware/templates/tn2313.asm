@@ -78,7 +78,7 @@ rjmp ENTRY_POINT
 .include "common.asm"
 .include "definitions.asm"
 .include "utils.asm"
-.include "mcp3004.asm"
+.include "mcp3204.asm"
 .include "one-wire.inc"
 .include "eeprom.inc"
 
@@ -87,7 +87,7 @@ rjmp ENTRY_POINT
 ;**************************************************************
 ENTRY_POINT:
 		INIT_STACK
-		UART_conf											;							стандартные настройки 9600
+		UART_conf_9600										;							стандартные настройки 9600
 		rcall UART_flush
 		sei													;							включить прерывания
 

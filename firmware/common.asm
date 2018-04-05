@@ -1,7 +1,10 @@
 ; используемые дефиниции, должны быть указаны в definitions.inc
 ;.equ MCU_MHZ = 20 ; частота кварца в MHz для вычисления задержек DELAY16 DELAY24
-;.def TEMP					= r25
-;.def UART_byte				= r24
+;.def TEMP						= r25
+;.def UART_byte					= r24
+;.def DELAY_24_r				= r28
+;.def DELAY_16_r				= r27
+;.def DELAY_08_r				= r26
 
 ;-----------------------------------------------------------
 
@@ -90,62 +93,62 @@ UART_flush:
 ;*** delay up to 0xFFFF, 4 cycles iteration
 ;I delay time in microseconds >=1   ; max 13107us
 ;I MCU_MHZ equ
-;U r26 r27
+;U DELAY_08_r DELAY_16_r
 .MACRO DELAY16 ; зависит от частоты MCU и от тактов в цикле
-	ldi    r27, HIGH(@0*MCU_MHZ/4-3)
-	ldi    r26, LOW(@0*MCU_MHZ/4-3)
+	ldi    DELAY_16_r, HIGH(@0*MCU_MHZ/4-3)
+	ldi    DELAY_08_r, LOW(@0*MCU_MHZ/4-3)
 	rcall delay_loop_16
 .ENDMACRO
 
 delay_loop_16:
-	subi r26, 1
-	sbci r27, 0
+	subi DELAY_08_r, 1
+	sbci DELAY_16_r, 0
 	brcc delay_loop_16
 	ret
 
 ;*** delay up to 0xFFFFFF, 5 cycles iteration
 ;I delay time in microseconds >=1  ; max 4194304us
 ;I MCU_MHZ equ
-;U r26 r27 r28
+;U DELAY_08_r DELAY_16_r DELAY_24_r
 .MACRO DELAY24 ; зависит от частоты MCU и от тактов в цикле
-	ldi    r28, BYTE3(@0*MCU_MHZ/5-3)
-	ldi    r27, BYTE2(@0*MCU_MHZ/5-3)
-	ldi    r26,   LOW(@0*MCU_MHZ/5-3)
+	ldi    DELAY_24_r, BYTE3(@0*MCU_MHZ/5-3)
+	ldi    DELAY_16_r, BYTE2(@0*MCU_MHZ/5-3)
+	ldi    DELAY_08_r,   LOW(@0*MCU_MHZ/5-3)
 	rcall delay_loop_24
 	nop
 .ENDMACRO
 
 ;.MACRO DELAY24_reset  ; зачем?
 ;	clc
-;	ldi r28, 1
-;	ldi r27, 1
-;	ldi r26, 1
+;	ldi DELAY_24_r, 1
+;	ldi DELAY_16_r, 1
+;	ldi DELAY_08_r, 1
 ;.ENDMACRO
 
 ;delay_1second: ; популярные задержки выгодно выносить, но не в этом файле.
-;	ldi r26, 0xFC
-;	ldi r27, 0x08
-;	ldi r28, 0x3d
+;	ldi DELAY_08_r, 0xFC
+;	ldi DELAY_16_r, 0x08
+;	ldi DELAY_24_r, 0x3d
 delay_loop_24:
-	subi r26, 1
-	sbci r27, 0
-	sbci r28, 0
+	subi DELAY_08_r, 1
+	sbci DELAY_16_r, 0
+	sbci DELAY_24_r, 0
 	brcc delay_loop_24
 	ret
 
 ;delay_24_push: ; сохраняет состояние счетчика задержки
 .MACRO DELAY24_push
-	push r26
-	push r27
-	push r28
+	push DELAY_08_r
+	push DELAY_16_r
+	push DELAY_24_r
 .ENDMACRO
 	;ret
 
 ;delay_24_pop:
 .MACRO DELAY24_pop
-	pop r28
-	pop r27
-	pop r26
+	pop DELAY_24_r
+	pop DELAY_16_r
+	pop DELAY_08_r
 	CLC
 .ENDMACRO
 	;ret
