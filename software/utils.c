@@ -1,49 +1,32 @@
 #define _XOPEN_SOURCE 700
 #define _GNU_SOURCE
 #include "utils.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <termios.h>
-#include <time.h>
-#include <sys/stat.h>
-#include <sys/timeb.h>
-#include <string.h>
-#include <wchar.h>
-#include <unistd.h>
-
-static struct termios old, new;
-
-/* Initialize new terminal i/o settings */
-void initTermios(int echo)
-{
-	tcgetattr(0, &old); /* grab old terminal i/o settings */
-	new = old; /* make new settings same as old settings */
-	new.c_lflag &= ~ICANON; /* disable buffered i/o */
-	new.c_lflag &= echo ? ECHO : ~ECHO; /* set echo mode */
-	tcsetattr(0, TCSANOW, &new); /* use these new terminal i/o settings now */
-}
-
-/* Restore old terminal i/o settings */
-void resetTermios(void)
-{
-	tcsetattr(0, TCSANOW, &old);
-}
+#include <termios.h>		// Getch
+#include <time.h>			// getTime
+#include <sys/timeb.h>		// getMilliseconds
+#include <sys/stat.h>		// isFileExist createDir
+#include <stdlib.h>			// OpenTerm
+#include <fcntl.h>			// OpenTerm
+#include <string.h>			// OpenTerm
+#include <unistd.h>			// OpenTerm
 
 /* Read 1 character - echo defines echo mode */
-char getch_(int echo)
+char Getch()
 {
-	char ch;
-	initTermios(echo);
-	ch = getchar();
-	resetTermios();
+	struct termios old, new;
+	int echo = 0;
+	{	// Initialize new terminal i/o settings
+		tcgetattr(0, &old); /* grab old terminal i/o settings */
+		new = old; /* make new settings same as old settings */
+		new.c_lflag &= ~ICANON; /* disable buffered i/o */
+		new.c_lflag &= echo ? ECHO : ~ECHO; /* set echo mode */
+		tcsetattr(0, TCSANOW, &new); /* use these new terminal i/o settings now */
+	}
+	char ch = getchar();
+	{	// Restore old terminal i/o settings
+		tcsetattr(0, TCSANOW, &old);
+	}
 	return ch;
-}
-
-
-char Getch(void)
-{
-	return getch_(0);
 }
 
 void getTime(char* str)
@@ -53,6 +36,13 @@ void getTime(char* str)
 	time(&timer);
 	tm_info = localtime(&timer);
 	strftime(str, 26, "%Y-%m-%d_%H:%M:%S", tm_info);
+}
+
+LLI getMilliseconds()
+{
+	struct timeb time;
+	ftime(&time);
+	return time.time*1000ll + time.millitm;
 }
 
 int isFileExist(char* filename)
@@ -66,15 +56,8 @@ int createDir(char* dirName)
 	return mkdir(dirName, 0755);
 }
 
-LLI getMilliseconds()
-{
-	struct timeb time;
-	ftime(&time);
-	return time.time*1000ll + time.millitm;
-}
-
 /*
-char *trimwhitespace(char *str)
+char *trimWhiteSpace(char *str)
 {
 	char *end;
 	// Trim leading space
@@ -108,7 +91,6 @@ char *trimwhitespace(char *str)
 	str[n] = 0;
 return n;
 }*/
-
 
 FILE* OpenTerm()
 {

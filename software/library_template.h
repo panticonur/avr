@@ -2,7 +2,6 @@
 #define LIBRARY_H
 
 #include "ft_utils.h"
-#include <wchar.h>
 
 #define HAND_SHAKE					0xAA
 #define cmd_COMMAND1				0x01

@@ -7,11 +7,11 @@
 #define menu_PLEASE						0
 #define menu_COMMAND1					1
 #define menu_COMMAND2					2
-#define menu_COMMAND3					2
+#define menu_COMMAND3					12
 #define menu_SET_STRING_VALUE1			3
 #define menu_SET_INT_VALUE1				4
 
-//#define NO_DEVICE
+#define NO_DEVICE
 
 int main(int argc, char **argv)
 {
@@ -107,13 +107,19 @@ int main(int argc, char **argv)
 
 		else if (menu==menu_COMMAND2)
 		{
+			printf("work begin\n");
 			working = 1;
-			sleep(1);
+			INITSCR
+			PRINT("hello!");
+			REFRESH
+			sleep(2);
+			ENDWIN
 			menu = menu_PLEASE;
 		}
 
 		else if (menu==menu_COMMAND3)
 		{
+			printf("work stopped\n");
 			working = 0;
 			menu = menu_PLEASE;
 		}

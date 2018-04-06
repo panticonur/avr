@@ -1,9 +1,8 @@
 #include "library_template.h"
-#include <stdlib.h>
-#include <string.h>
-#include <pthread.h>
 #include "utils.h"
-#include <unistd.h>
+#include <string.h>			// list_devices open_device
+#include <pthread.h>
+#include <unistd.h>			// usleep
 
 FT_HANDLE ftHandle = NULL;
 BYTE ftReceivedBytes[FTUTIL_BUFFER_SIZE];

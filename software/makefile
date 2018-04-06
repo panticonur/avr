@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -fPIC
 FTD2XX := ./libftd2xx-x86_64-1.4.6/build/libftd2xx.a
 
-all: clean $(LIB) $(APP)
+all: $(APP) $(LIB)
 
 $(APP):
 	$(CC) -o $(APP) $(CFLAGS) app_template.c ft_utils.c utils.c $(FTD2XX) -lpthread -lncursesw
