@@ -1,18 +1,30 @@
 #define _XOPEN_SOURCE 700
 #define _GNU_SOURCE
-#include "utils.h"
+
+#ifdef WINDOWS
+#include <io.h>				// createDir
+#include <conio.h>
+#else
 #include <termios.h>		// Getch
-#include <time.h>			// getTime
-#include <sys/timeb.h>		// getMilliseconds
-#include <sys/stat.h>		// isFileExist createDir
 #include <stdlib.h>			// OpenTerm
 #include <fcntl.h>			// OpenTerm
 #include <string.h>			// OpenTerm
 #include <unistd.h>			// OpenTerm
+#endif
+
+#include "utils.h"
+#include <time.h>			// getTime
+#include <sys/timeb.h>		// getMilliseconds
+#include <sys/stat.h>		// isFileExist createDir
+
+
 
 /* Read 1 character - echo defines echo mode */
 char Getch()
 {
+#ifdef WINDOWS
+	return _getch();
+#else
 	struct termios old, new;
 	int echo = 0;
 	{	// Initialize new terminal i/o settings
@@ -27,6 +39,7 @@ char Getch()
 		tcsetattr(0, TCSANOW, &old);
 	}
 	return ch;
+#endif
 }
 
 void getTime(char* str)
@@ -53,8 +66,61 @@ int isFileExist(char* filename)
 
 int createDir(char* dirName)
 {
+#ifdef WINDOWS
+	return mkdir(dirName);
+#else
 	return mkdir(dirName, 0755);
+#endif
 }
+
+FILE* Open_X_Term()
+{
+#ifdef WINDOWS
+	return NULL;
+#else
+	setlocale(LC_ALL, "");
+	// https://stackoverflow.com/questions/22200398/c-setup-pseudoterminal-and-open-with-xterm
+	// https://www.x.org/archive/X11R6.7.0/doc/xterm.1.html
+	int masterPT;
+	char slavename[64], addr[64], geometry[64];
+	FILE *term;
+	masterPT = posix_openpt(O_RDWR);
+	grantpt(masterPT);
+	unlockpt(masterPT);
+	if(ptsname_r(masterPT, slavename, sizeof(slavename)) < 0)
+	{
+		perror("Open_X_Term - get slave name (ptsname_r)");
+		setlocale(LC_ALL, "C");
+		return 0;
+	}
+	printf("PT master: %d\n", masterPT);
+	printf("PT slavename: %s\n", slavename);
+
+	sprintf(geometry,"-geometry 200x50+50+50");
+	snprintf(addr, sizeof(addr), "-S%s/%d", strrchr(slavename,'/')+1, masterPT);
+	printf("xterm: %s %s\n", addr, geometry);
+	if(!fork())
+	{
+		execlp("xterm", "xterm", addr, (char*)0);
+		setlocale(LC_ALL, "");
+		_exit(1);
+	}
+	term = fopen(slavename, "w, ccs=UNICODE");
+	/*if(fwide(term, 0) == 0)
+	{
+		if(fwide(term, 1) <= 0)
+			printf("could not switch to wide char mode!\n");
+		else
+			printf("switched to wide char mode!\n");
+	}*/
+	if(fwide(term, 1) > 0)
+		printf("switched to wide char mode!\n");
+	fwprintf(term, L"X-terminal\n");
+	setlocale(LC_ALL, "C");
+	return term;
+#endif
+}
+
 
 /*
 char *trimWhiteSpace(char *str)
@@ -91,47 +157,3 @@ char *trimWhiteSpace(char *str)
 	str[n] = 0;
 return n;
 }*/
-
-FILE* OpenTerm()
-{
-	setlocale(LC_ALL, "");
-	// https://stackoverflow.com/questions/22200398/c-setup-pseudoterminal-and-open-with-xterm
-	// https://www.x.org/archive/X11R6.7.0/doc/xterm.1.html
-	int masterPT;
-	char slavename[64], addr[64], geometry[64];
-	FILE *term;
-	masterPT = posix_openpt(O_RDWR);
-	grantpt(masterPT);
-	unlockpt(masterPT);
-	if(ptsname_r(masterPT, slavename, sizeof(slavename)) < 0)
-	{
-		perror("OpenTerm - get slave name (ptsname_r)");
-		setlocale(LC_ALL, "C");
-		return 0;
-	}
-	printf("PT master: %d\n", masterPT);
-	printf("PT slavename: %s\n", slavename);
-
-	sprintf(geometry,"-geometry 200x50+50+50");
-	snprintf(addr, sizeof(addr), "-S%s/%d", strrchr(slavename,'/')+1, masterPT);
-	printf("xterm: %s %s\n", addr, geometry);
-	if(!fork())
-	{
-		execlp("xterm", "xterm", addr, (char*)0);
-		setlocale(LC_ALL, "");
-		_exit(1);
-	}
-	term = fopen(slavename, "w, ccs=UNICODE");
-	/*if(fwide(term, 0) == 0)
-	{
-		if(fwide(term, 1) <= 0)
-			printf("could not switch to wide char mode!\n");
-		else
-			printf("switched to wide char mode!\n");
-	}*/
-	if(fwide(term, 1) > 0)
-		printf("switched to wide char mode!\n");
-	fwprintf(term, L"X-terminal\n");
-	setlocale(LC_ALL, "C");
-	return term;
-}

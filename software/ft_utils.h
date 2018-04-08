@@ -1,7 +1,11 @@
 #ifndef FT_UTILS_H
 #define FT_UTILS_H
 
-#include "./libftd2xx-x86_64-1.4.6/ftd2xx.h"
+#if defined WINDOWS && !defined _WIN32
+	#define _WIN32
+#endif
+#include "ftd2xx.h"
+
 #define FTUTIL_MAX_DEVICES		128
 #define FTUTIL_EEPROM_SIZE		64
 #define FTUTIL_BUFFER_SIZE		64*1024

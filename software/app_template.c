@@ -1,15 +1,18 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <inttypes.h>
 #include "ft_utils.h"
 #include "utils.h"
-#include <unistd.h>
 
 #define menu_PLEASE						0
 #define menu_COMMAND1					1
 #define menu_COMMAND2					2
-#define menu_COMMAND3					12
+#define menu_COMMAND12					12
 #define menu_SET_STRING_VALUE1			3
 #define menu_SET_INT_VALUE1				4
+#define menu_UTILS						5
 
 #define NO_DEVICE
 
@@ -22,8 +25,6 @@ int main(int argc, char **argv)
 	char StringValue1[256] = "temp";
 	int IntValue1 = 1;
 	int working = 0;
-
-	printf("\n\n\n****************\n");
 
 	for (int i = 1; i < argc; ++i) {
 		printf("argv[%d]: %s\n", i, argv[i]);
@@ -51,15 +52,18 @@ int main(int argc, char **argv)
 
 		if (menu==menu_PLEASE)
 		{
-			char time_str[50];
+			char time_str[50] = "no time";
 			getTime(time_str);
+
 			printf("---------------- %s\r\n", time_str);
+
 			if (!working)
 			{
 				printf("%d) COMMAND1\r\n", menu_COMMAND1);
 				printf("%d) COMMAND2\n", menu_COMMAND2);
 				printf("%d) set StringValue1 <%s>\n", menu_SET_STRING_VALUE1, StringValue1);
 				printf("%d) set IntValue1 <%d>\n", menu_SET_INT_VALUE1, IntValue1);
+				printf("%d) call utils functions\n", menu_UTILS);
 				printf("0) exit\n");
 			}
 			else
@@ -67,12 +71,15 @@ int main(int argc, char **argv)
 			menu = -1;
 			while (menu==-1)
 			{
-				int g = Getch();
+				int g = 0;
+				g = Getch();
 				menu = g - '0';
-				if (menu<0 || menu>9)
+				if (menu<0 || menu>5)
 					menu = -1;
 				if (working)
-					menu = g==' ' ? menu_COMMAND3 : -1;
+					menu = g==' ' ? menu_COMMAND12 : -1;
+				else if (g==' ')
+					printf("ms %lld\n", getMilliseconds());
 			}
 		}
 
@@ -107,17 +114,17 @@ int main(int argc, char **argv)
 
 		else if (menu==menu_COMMAND2)
 		{
-			printf("work begin\n");
+			printf("work begin - поехали\n");
 			working = 1;
 			INITSCR
-			PRINT("hello!");
+			PRINT("hello - поехали!\n");
 			REFRESH
 			sleep(2);
 			ENDWIN
 			menu = menu_PLEASE;
 		}
 
-		else if (menu==menu_COMMAND3)
+		else if (menu==menu_COMMAND12)
 		{
 			printf("work stopped\n");
 			working = 0;
@@ -144,6 +151,13 @@ int main(int argc, char **argv)
 			long value = atoi(string);
 			IntValue1 = value;
 			printf("IntValue1 = %d\n", IntValue1);
+			menu = menu_PLEASE;
+		}
+
+		else if (menu==menu_UTILS)
+		{
+			printf("isFileExist(utils.h)=%d\n", isFileExist("utils.h"));
+			printf("createDir %d\n", createDir("folder"));
 			menu = menu_PLEASE;
 		}
 

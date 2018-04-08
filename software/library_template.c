@@ -207,14 +207,14 @@ void* WorkingThread(void* var)
 		int waitDataTimeout = 5000;
 		if ( ( ftStatus = FTUTIL_WaitData(ftHandle, reading_bytes, 0, &ftAvailableBytes, waitDataTimeout, 0) ) != FT_OK )
 		{
-			printf("\nERROR WorkingThread(0x%p) - WaitData(%d)\n", ftHandle, ftStatus);
+			printf("\nERROR WorkingThread(0x%p) - WaitData(%u)\n", ftHandle, ftStatus);
 			WorkingThreadHandle = (pthread_t)NULL;
 			return RV_WAIT_DATA;
 		}
 		DWORD ftReadedBytes;
 		if (( ftStatus = FTUTIL_ReadData(ftHandle, buffer, reading_bytes, &ftReadedBytes) ) != FT_OK)
 		{
-			printf("\nERROR WorkingThread(0x%p) - ReadData(%d)\n", ftHandle, ftStatus);
+			printf("\nERROR WorkingThread(0x%p) - ReadData(%u)\n", ftHandle, ftStatus);
 			WorkingThreadHandle = (pthread_t)NULL;
 			return RV_READ_DATA;
 		}
@@ -337,7 +337,7 @@ FT_STATUS TransmitCommand(int cmd, DWORD waitBytes, int verbose, BYTE data[], in
 		if ((ftStatus = FTUTIL_ReadData(ftHandle, ftReceivedBytes, waitBytes, &bytesAvailable)) != FT_OK)
 			return ftStatus;
 		if (verbose)
-			printf("data received (%d)\n", waitBytes);
+			printf("data received (%u)\n", waitBytes);
 		if (ftReceivedBytes[0]==cmd && bytesAvailable==waitBytes)
 			return FT_OK;
 		else

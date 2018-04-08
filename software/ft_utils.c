@@ -24,8 +24,9 @@ FT_STATUS FTUTIL_List()
 	}
 	for(DWORD i = 0; i<FTUTIL_MAX_DEVICES-1; i++)
 		pcBufLD[i] = FTUTIL_List_SerialNumbers[i];
+	FTUTIL_List_DevicesCount = 0;
 	ftStatus = FT_ListDevices(pcBufLD, &FTUTIL_List_DevicesCount, FT_LIST_ALL | FT_OPEN_BY_SERIAL_NUMBER);
-	if ( ftStatus == FT_OK )
+	if ( ftStatus == FT_OK || ftStatus == FT_DEVICE_NOT_FOUND )
 		printf("FTDI devices count = %d\n", FTUTIL_List_DevicesCount);
 	else
 	{
@@ -35,7 +36,7 @@ FT_STATUS FTUTIL_List()
 	for(DWORD i = 0; i<FTUTIL_MAX_DEVICES-1; i++)
 		pcBufLD[i] = FTUTIL_List_Descriptions[i];
 	ftStatus = FT_ListDevices(pcBufLD, &FTUTIL_List_DevicesCount, FT_LIST_ALL | FT_OPEN_BY_DESCRIPTION );
-	if ( ftStatus == FT_OK )
+	if ( ftStatus == FT_OK || ftStatus == FT_DEVICE_NOT_FOUND )
 	{
 		for(int i = 0; i < FTUTIL_List_DevicesCount; i++)
 			printf("#%d    SerialNumber=%s Description=%s\n", i, FTUTIL_List_SerialNumbers[i], FTUTIL_List_Descriptions[i]);
@@ -65,7 +66,7 @@ FT_STATUS FTUTIL_List()
 		}
 	}*/
 	/*ftStatus = FT_ListDevices(&iNumDevs, NULL, FT_LIST_NUMBER_ONLY);
-	if(ftStatus != FT_OK) { printf("Error: FT_ListDevices(%u)\n", ftStatus); return 1; }
+	if(ftStatus != FT_OK) { printf("Error: FT_ListDevices(%lu)\n", ftStatus); return 1; }
 	else printf("FT_ListDevices iNumDevs=%d\n", iNumDevs);*/
 }
 
@@ -116,7 +117,6 @@ FT_STATUS FTUTIL_WriteData(FT_HANDLE ftHandle, LPVOID transmitData, DWORD bytesT
 		printf("ERROR FTUTIL_WriteData - FT_Write only wrote %u (of %u) bytes\n", dwBytesWritten,  bytesToWrite);
 		ftStatus = FT_OTHER_ERROR;
 	}
-	//usleep(1000);
 	return ftStatus;
 }
 
@@ -145,7 +145,11 @@ FT_STATUS FTUTIL_WaitData(FT_HANDLE ftHandle, DWORD bytesWait, int exactlyBytes,
 			return FT_OTHER_ERROR;
 		}
 		if (bytes<bytesWait)
+#ifdef WINDOWS
+			Sleep(10);
+#else
 			usleep(10000);
+#endif
 		//if (verbose)
 		//	printf("%d ", bytes);
 		//bytes = temp;

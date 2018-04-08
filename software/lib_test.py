@@ -10,7 +10,7 @@ import numpy as np
 from ctypes import *
 # https://docs.python.org/2/library/ctypes.html
 
-lib = CDLL("libtemplate.so")
+lib = CDLL("./libtemplate.so")
 
 
 ArrayType = c_ushort * 123
@@ -40,7 +40,8 @@ print ''
 
 lib.open_device(0)
 lib.purge()
-lib.yattor_start()
-time.sleep(10)
+lib.start_work()
+print("sleep...")
+time.sleep(2)
 lib.stop_work();
 lib.close_device()
