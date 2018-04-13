@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <inttypes.h>
 #include "ft_utils.h"
 #include "utils.h"
 
@@ -13,6 +12,7 @@
 #define menu_SET_STRING_VALUE1			3
 #define menu_SET_INT_VALUE1				4
 #define menu_UTILS						5
+#define menu_LAST						menu_UTILS
 
 #define NO_DEVICE
 
@@ -54,7 +54,6 @@ int main(int argc, char **argv)
 		{
 			char time_str[50] = "no time";
 			getTime(time_str);
-
 			printf("---------------- %s\r\n", time_str);
 
 			if (!working)
@@ -74,7 +73,7 @@ int main(int argc, char **argv)
 				int g = 0;
 				g = Getch();
 				menu = g - '0';
-				if (menu<0 || menu>5)
+				if (menu<0 || menu>menu_LAST)
 					menu = -1;
 				if (working)
 					menu = g==' ' ? menu_COMMAND12 : -1;

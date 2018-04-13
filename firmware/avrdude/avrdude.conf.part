@@ -1,4 +1,5 @@
-#yattor
+#for avrdude 6.3
+#tf1, tf2 #panticonur
 programmer
   id    = "tf1";
   desc  = "ft232rl programmer";

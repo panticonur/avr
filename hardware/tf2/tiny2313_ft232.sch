@@ -657,8 +657,8 @@ Text Notes 600  3350 0    39   ~ 0
 USB 5V
 Text Notes 650  3650 0    39   ~ 0
 reset
-Text Notes 600  3550 0    39   ~ 0
-reset\nby USB
+Text Notes 800  3550 2    39   ~ 0
+reset by USB\n(self-powered config)
 Text Label 1300 2950 0    60   ~ 0
 GND
 Text Label 1950 3050 0    60   ~ 0

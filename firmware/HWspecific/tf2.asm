@@ -1,4 +1,4 @@
-;макросы характерные для PCB "tf1"
+;макросы характерные для PCB "tf2"
 ;нужно копировать в проект так как есть возможность переназначить порты.
 ;SBI 2 cycles
 ;CBI 2 cycles
@@ -46,64 +46,44 @@ sbi   PORTD, PORTD4
 cbi   PORTD, PORTD4
 .ENDMACRO
 
-;-----------------------------------------------------------	YELLOW led
-
-.MACRO LED_YELLOW_init
-SBI  DDRD, DDD5
-.ENDMACRO
-
-.MACRO LED_YELLOW_on
-sbi   PORTD, PORTD5
-.ENDMACRO
-
-.MACRO LED_YELLOW_off
-cbi   PORTD, PORTD5
-.ENDMACRO
-
 ;-----------------------------------------------------------	GREEN led
 
 .MACRO LED_GREEN_init
-SBI  DDRD, DDD6
-.ENDMACRO
-
-.MACRO LED_GREEN_on
-sbi   PORTD, PORTD6
-.ENDMACRO
-
-.MACRO LED_GREEN_off
-cbi   PORTD, PORTD6
-.ENDMACRO
-
-;===========================================================	KEYs
-
-;-----------------------------------------------------------	KEY0
-
-.equ KEY0 = 0
-
-.MACRO KEY0_init
 SBI  DDRD, DDD5
 .ENDMACRO
 
-.MACRO KEY0_on
+.MACRO LED_GREEN_on
 sbi   PORTD, PORTD5
 .ENDMACRO
 
-.MACRO KEY0_off
+.MACRO LED_GREEN_off
 cbi   PORTD, PORTD5
 .ENDMACRO
 
-;-----------------------------------------------------------	KEY1
+;-----------------------------------------------------------	YELLOW led
 
-.equ KEY1 = 1
-
-.MACRO KEY1_init
+.MACRO LED_YELLOW_init
 SBI  DDRD, DDD6
 .ENDMACRO
 
-.MACRO KEY1_on
+.MACRO LED_YELLOW_on
 sbi   PORTD, PORTD6
 .ENDMACRO
 
-.MACRO KEY1_off
+.MACRO LED_YELLOW_off
 cbi   PORTD, PORTD6
+.ENDMACRO
+
+;===========================================================	TEST0
+
+.MACRO TEST0_init
+SBI  DDRB, DDB0
+.ENDMACRO
+
+.MACRO TEST0_on
+sbi   PORTB, PORTB0
+.ENDMACRO
+
+.MACRO TEST0_off
+cbi   PORTB, PORTB0
 .ENDMACRO
