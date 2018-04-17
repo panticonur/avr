@@ -60,4 +60,9 @@
   (pad 2 thru_hole oval (at -2.54 0) (size 1.5 2) (drill 0.8) (layers *.Cu *.Mask))
   (pad 3 thru_hole oval (at 0 0) (size 1.5 2) (drill 0.8) (layers *.Cu *.Mask))
   (pad 1 thru_hole oval (at 2.54 0) (size 1.5 2) (drill 0.8) (layers *.Cu *.Mask))
+  (model ${KIPRJMOD}/../../avr/hardware/footprint/pnt.3dshapes/SOT23-DIP.wrl
+    (at (xyz 0.1 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 90))
+  )
 )
