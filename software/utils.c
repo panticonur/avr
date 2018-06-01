@@ -99,11 +99,18 @@ FILE* Open_X_Term()
 	sprintf(geometry,"-geometry 200x50+50+50");
 	snprintf(addr, sizeof(addr), "-S%s/%d", strrchr(slavename,'/')+1, masterPT);
 	printf("xterm: %s %s\n", addr, geometry);
-	if(!fork())
+	int fr = 0;
+	if(!(fr = fork()))
 	{
 		execlp("xterm", "xterm", addr, (char*)0);
 		setlocale(LC_ALL, "");
 		_exit(1);
+	}
+	else if (fr==-1)
+	{
+		printf("Cannot fork xterm! (%d)\n", fr);
+		setlocale(LC_ALL, "C");
+		return NULL;
 	}
 	term = fopen(slavename, "w, ccs=UNICODE");
 	/*if(fwide(term, 0) == 0)

@@ -273,6 +273,7 @@ int stop_work()
 	WorkingThreadHandle = (pthread_t)NULL;
 	printf("stop_work(0x%p)\n", ftHandle);
 	pthread_mutex_unlock(&PublicMutex);
+	sleep(1);
 	return purge();
 }
 

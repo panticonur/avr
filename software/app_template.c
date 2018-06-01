@@ -113,10 +113,10 @@ int main(int argc, char **argv)
 
 		else if (menu==menu_COMMAND2)
 		{
-			printf("work begin - поехали\n");
+			printf("work begin\n");
 			working = 1;
 			INITSCR
-			PRINT("hello - поехали!\n");
+			PRINT("hello!\n");
 			REFRESH
 			sleep(2);
 			ENDWIN
