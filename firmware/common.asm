@@ -84,9 +84,9 @@ UART_tx:
 ;U UART_byte
 UART_flush:
 	sbis UCSRA, RXC
-	ret
+		ret
 	in UART_byte, UDR
-	rjmp UART_Flush
+	rjmp UART_flush
 
 ;***************************** DELAY *********************************
 

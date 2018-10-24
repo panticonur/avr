@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BAS28
+D high-speed switching diodes
+$ENDCMP
+#
+$CMP si1553
+D N- and P-Channel 20 V (D-S) MOSFET
+$ENDCMP
+#
+#End Doc Library

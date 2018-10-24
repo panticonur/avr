@@ -1,3 +1,4 @@
+; это шаблон, файл копируется в проект для правок и добавления новых переменных
 ;***********************************************************  common.asm special registers summary
 ; здесь можно поменять регитры, используемые в common.asm
 
@@ -11,23 +12,12 @@
 ;***********************************************************  project specific registers summary
 ; здесь описывать регистры, используемые в проекте
 
-.def ADC_HIGH_r				= r16							;							старший байт сэмпла
-.def ADC_LOW_r				= r17							;							младший байт сэмпла
+.def VAR1_r				= r16
 
-.def ADC_INC_H_r			= r31;ZH						;							старший байт индекса
-.def ADC_INC_L_r			= r30;ZL						;							младший байт индекса
+.def VAR2_H_r			= r31;ZH
+.def VAR2_L_r			= r30;ZL
 
-.def PING_WAITING_HIGH_r	= r18							;							старший байт счетчика ожидания пинга
-.def PING_WAITING_LOW_r		= r19							;							младший байт счетчика ожидания пинга
-.def PING_INC_r				= r20							;							пинг-индекс
-
-.def COMMAND_r				= r21							;							содержит принятую с хоста команду
-
-.equ PING_WAITING_HIGH		= 0x14							;							количество сэмплов, в ходе которых ожидается пинг
-.equ PING_WAITING_LOW		= 0x88							;							5000 iterations = половина секунды
-
-.def NOP_L_r				= r26							;							счетчик простоя МК
-.def NOP_H_r				= r27
+.equ DEF1				= 0x1
 
 ;***********************************************************  UART configuration
 
@@ -35,18 +25,18 @@
 .MACRO UART_conf_9600 ; at ~9600-8-odd-2 520=0x208 ( ODD = UPM1+UPM0 ) (2 stop-bit = USBS)
 	OUT_ UBRRH, 0
 	OUT_ UBRRL, 0x81
-	OUT_ UCSRA, 0
-	OUT3 UCSRB, RXCIE, RXEN, TXEN // rec_int rec_enable, tr_enable
+	OUT_ UCSRA, 0 							; Normal Speed
+	OUT3 UCSRB, RXCIE, RXEN, TXEN			; rec_interrupt, rec_enable, tr_enable
 	OUT5 UCSRC, UPM1, UPM0, USBS, UCSZ1, UCSZ0
 .ENDMACRO
 
 .MACRO UART_conf_500K ; ~500K-8-N-1  400clk/byte
 	OUT_ UBRRH, 0
 	OUT_ UBRRL, 0x4
-	;OUT_ UCSRA, 0 ; Normal Speed
-	OUT1 UCSRA, U2X ; Double Speed Operation (U2X)
-	OUT3 UCSRB, RXCIE, RXEN, TXEN	// rec_interrupt, rec_enable, tr_enable
-	OUT2 UCSRC, UCSZ1, UCSZ0		// 1 stop bit, 8-bit data
+	;OUT_ UCSRA, 0 							; Normal Speed
+	OUT1 UCSRA, U2X 						; Double Speed Operation (U2X)
+	OUT3 UCSRB, RXCIE, RXEN, TXEN			; rec_interrupt, rec_enable, tr_enable
+	OUT2 UCSRC, UCSZ1, UCSZ0				; 1 stop bit, 8-bit data
 .ENDMACRO
 
 ;*********************************************************** watch dog 8

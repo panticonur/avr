@@ -72,22 +72,22 @@ estore:
 	ret
 
 ;*** estore1 function copy byte from memory to eeprom
-;I eeprom target adress set to X
-;I memory source adress set to Y
+;I eeprom target address set to X
+;I memory source address set to Y
 ;U r26-r29 TEMP
 estore1:
     estore1_wait:
         SBIC EECR, EEPE
-        RJMP estore1_wait
-    OUT  EEARL, XL
-    .IFDEF EEARH
-    OUT  EEARH, XH
-    .ENDIF
-    ld   TEMP, Y+
-    OUT  EEDR, TEMP
-    SBI  EECR, EEMPE
-    SBI  EECR, EEPE
+            RJMP estore1_wait
+        OUT  EEARL, XL
+        .IFDEF EEARH
+        OUT  EEARH, XH
+        .ENDIF
+        ld   TEMP, Y+
+        OUT  EEDR, TEMP
+        SBI  EECR, EEMPE
+        SBI  EECR, EEPE
     estore1_wait2:
         SBIC EECR, EEPE
             RJMP estore1_wait2
-    ret
+        ret
